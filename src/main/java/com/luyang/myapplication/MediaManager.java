@@ -42,9 +42,11 @@ public class MediaManager {
 
 
     public static void pause() {
-        if (mediaPlayer.isPlaying() &&  mediaPlayer != null) {
-            mediaPlayer.pause();
-            isPause = true;
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.pause();
+                isPause = true;
+            }
         }
     }
 

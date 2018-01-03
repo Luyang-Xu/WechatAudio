@@ -55,7 +55,7 @@ public class AudioRecorderButton extends android.support.v7.widget.AppCompatButt
                             while (isRecording) {
                                 try {
                                     Thread.sleep(1000);
-                                    time += 0.1f;
+                                    time += 1f;
                                     handler.sendEmptyMessage(CHANGED);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -159,6 +159,7 @@ public class AudioRecorderButton extends android.support.v7.widget.AppCompatButt
                     if (finishListener != null) {
                         finishListener.onFinish(time, am.getCurFilePath());
                     }
+                    dm.dismissDialog();
                 } else if (curState == STATE_CANCEL) {
                     //取消状态
                     //TODO cancel

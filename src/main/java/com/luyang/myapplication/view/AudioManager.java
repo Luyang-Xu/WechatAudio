@@ -63,12 +63,13 @@ public class AudioManager {
             curPath = file.getAbsolutePath();
             //启动音频前的录音准备
             mediaRecorder = new MediaRecorder();
+            //TODO 该属性设置需要放在最前面，紧跟实例化之后
+            //音频来源话筒
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             //输出文件路径
             mediaRecorder.setOutputFile(file.getAbsolutePath());
             //输出格式
             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);
-            //音频来源话筒
-            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             //音频编码格式
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mediaRecorder.prepare();
